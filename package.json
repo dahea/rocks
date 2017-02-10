@@ -1,0 +1,25 @@
+{
+  "name": "rocks",
+  "version": "1.0.0",
+  "description": "dahea.rocks portal to rocks/thebass and rocks/atdev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dahea/rocks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dahea/rocks/issues"
+  },
+  "homepage": "https://github.com/dahea/rocks#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-serve": "^0.1.6",
+    "less": "^2.7.2"
+  }
+}

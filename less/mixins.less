@@ -267,172 +267,20 @@
 
 
 
-  ///////////////////////
- //  Flexbox Buttons  //
-///////////////////////
-
-.flex-buttons(@margin: 20px) {
-    .flex;
-    margin-right: -@margin;
-
-    .pefin-button {
-        .flex-basis(100px);
-        .flex-grow(1);
-        margin-right: @margin;
-    }
-}
-
-
-
-  ////////////////////////////////////////////////////
- //  THIS SECTION IS RENDERED OBSOLETE BY FLEXBOX  //
-////////////////////////////////////////////////////
-
-//
-// Justify
-//
-
-.justify-base() {
-    text-align: justify;
-	line-height: 0;
-
-	&:after {
-		content:"";
-		display: inline-block;
-		width: 100%;
-		height: 0px;
-        font-size: 0;
-		vertical-align: top;
-
-        font-size: 0;
-        line-height: 0;
-        pointer-events: none;
-        visibility: hidden;
-	}
-}
-
-.justify-element(@v-align: middle, @t-align: left) {
-    .relative;
-    z-index: 1;
-    line-height: 1;
-    display: inline-block;
-	text-align: @t-align;
-	vertical-align: @v-align;
-}
-
-.justify-children(@v-align: middle, @t-align: left) {
-	.justify-base;
-	> * {.justify-element(@v-align, @t-align);}
-}
-
-.justify-elements {.justify-children}
-
-// legacy justified
-.justified(@v-align: middle, @t-align: left) {
-	.justify-base;
-	> * {.justify-element(@v-align, @t-align);}
-}
-
-//
-// Alignment
-//
-
-.inline-base(@h-align: inherit) {
-    font-size: 0;
-    text-align: @h-align;
-}
-
-.inline-element(@v-align: middle, @t-align: left) {
-    font-size: 16px; //fallback
-    font-size: 1rem;
-    display: inline-block;
-    text-align: @t-align;
-    vertical-align: @v-align;
-}
-
-.inline-children(@h-align: inherit, @v-align: middle, @t-align: left) {
-    .inline-base(@h-align);
-    > * {.inline-element(@v-align, @t-align);}
-}
-.inline-content {.inline-children;}
-
-//
-// V-align
-//
-
-.v-align() {
-    display: inline-block;
-	vertical-align: middle;
-}
-
-.v-align-pseudo-style() {
-    .v-align;
-    content:"";
-    height: 100%;
-    width: 0;
-    //font-size: 0;
-    //line-height: 0;
-}
-
-// doesn't seem to work...
-.v-align-pseudo(@pseudo: after) {
-    //&:@{pseudo} {.v-align-pseudo-style;}
-    @pseudo-bugfix: e(":@pseudo");
-    &@{pseudo-bugfix} {.v-align-pseudo-style;}
-}
-
-.v-align-pseudo-before() {
-    //.v-align-pseudo(before);
-    &:before {.v-align-pseudo-style;}
-}
-
-.v-align-pseudo-after() {
-    //.v-align-pseudo(after);
-    &:after {.v-align-pseudo-style;}
-}
-
-.v-align-base() {
-    > * {.v-align;}
-}
-
-.v-align-children(@pseudo: after) {
-    .v-align-base;
-    //.v-align-pseudo(@pseudo);
-    .v-align-pseudo-after;
-}
-
-.v-align-content {
-    .v-align-children;
-}
-
-//doesn't work yet...
-.vert-justified() {
-    .v-align-children;
-    .justified;
-}
-
-  ////////////////////////
- //  -- END SECTION -- //
-////////////////////////
-
-
   ///////////////////
  //  Positioning  //
 ///////////////////
 
 .z(@z-index: 1) {z-index: @z-index;}
 
-.pos-rel {position: relative;}
-.pos-abs {position: absolute;}
-.pos-fix {position: fixed;}
+.relative {position: relative;}
+.absolute {position: absolute;}
+.fixed {position: fixed;}
 
-.dis-block {display: block;}
-.dis-inline {display: inline;}
-.dis-inblock {display: inline-block;}
-.dis-none {display: none;}
-
-.dis-flex {.flexbox;}
-.dis-inflex {.inline-flex;}
+.block {display: block;}
+.inline {display: inline;}
+.inline-block {display: inline-block;}
+.none {display: none;}
 
 .flex-jb {.justify-content(space-between);}
 .flex-ac {.align-items(center);}
@@ -501,29 +349,6 @@
     .absolute;
     .tblr0;
 }
-
-//
-// THIS BLOCK IS DEPRECATED, ABOVE SECTION SHOULD BE USED INSTEAD -------
-//
-// the above code is more descriptive (specifying both a property and value)
-// and is less likely to be used as a regular class name,
-// therefore has the ability to be used in the html in an OOCSS fashion if necessary
-//
-
-.absolute() {position: absolute;}
-.relative() {position: relative;}
-.fixed() {position: fixed;}
-.inline-block() {display: inline-block;} 
-.inline() {display: inline;} 
-.block() {display: block;}
-.none() {display: none;}
-.justify-space-between {.justify-content(space-between);}
-.align-items-center {.align-items(center);}
-
-//
-// END DEPRICATED BLOCK -----------------
-//
-
 
 
   //////////////////
@@ -716,86 +541,6 @@
 .o(@opacity: 1) {opacity: @opacity}
 .o0() {.o(0);}
 .o1() {.o(1);}
-
-.fade-out() {
-    visibility: hidden;
-    pointer-events: none;
-    .o0;
-}
-
-.fade-in() {
-    //visibility: visible;
-    //pointer-events: all;
-    //solution for visible children in hidden parent
-    visibility: inherit;
-    pointer-events: inherit;
-    .o100;
-}
-
-
-
-  ///////////////
- // Triangles //
-///////////////
-
-.triangle-basic(@S: 10px, @C: white, @D1: bottom, @D2: @undef) {
-    width: 0;
-    height: 0;
-    border: @S solid transparent;
-    border-@{D1}-color: @C;
-    border-@{D2}-color: @C;
-}
-
-.pointer-arrow(@location, @size: 20px) {
-    .z(-1);
-    .absolute;
-    font-size: @size;
-    width: 1em;
-    height: 1em;
-    .transform-basic(@R: 45deg);
-
-    //style
-    background: inherit;
-    border: inherit;
-    
-    & when (@location = top) {
-        .t0;
-        left: 50%;
-        margin-top: -0.5em;
-        margin-left: -0.5em;
-        border-bottom-color: transparent !important;
-        border-right-color: transparent !important;
-    }
-
-    & when (@location = bottom) {
-        .b0;
-        left: 50%;
-        margin-bottom: -0.5em;
-        margin-left: -0.5em;
-        border-top-color: transparent !important;
-        border-left-color: transparent !important;
-    }
-
-    & when (@location = left) {
-        .l0;
-        top: 50%;
-        margin-top: -0.5em;
-        margin-left: -0.5em;
-        border-top-color: transparent !important;
-        border-right-color: transparent !important;
-    }
-
-    & when (@location = right) {
-        .r0;
-        top: 50%;
-        margin-top: -0.5em;
-        margin-right: -0.5em;
-        border-bottom-color: transparent !important;
-        border-left-color: transparent !important;
-    }
-
-}
-
 
 
   ///////////////

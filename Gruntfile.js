@@ -11,26 +11,30 @@ module.exports = function(grunt) {
         files: {
           'css/main.css': 'less/main.less'
         }
-      },
-      watch: {
-        styles: {
-          files: ['less/**/*.less'], // which files to watch
-          tasks: ['less'],
-          options: {
-            nospawn: true
-          }
+      }
+    },
+    watch: {
+      styles: {
+        files: ['less/**/*.less'], // which files to watch
+        tasks: ['less:development'],
+        options: {
+          nospawn: true
         }
       }
     },
     serve: {
-        options: {
-            port: 4476
-        }
+      options: {
+          port: 4476
+      }
     }
   });
 
 
-  // Default task(s).
+  // Load grunt package(s).
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-serve');
+
+  // Default task(s)
+  grunt.registerTask('default', ['serve', 'watch', 'less:development']);
 };

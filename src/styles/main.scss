@@ -1,0 +1,117 @@
+body {
+    font-family: "Playwrite DE Grund", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 0;
+    margin: 0;  
+
+    background: linear-gradient(88deg, #ef476f, #ffd166, #06d6a0, #118ab2, #073b4c);
+    background-size: 500% 500%;
+
+    -webkit-animation: Background 12s ease infinite;
+    -moz-animation: Background 12s ease infinite;
+    animation: Background 12s ease infinite;
+
+    color: #fff;
+}
+
+main {
+    padding: 24px;
+    display: grid;
+    align-items: center;
+    min-height: 320px;
+    height: calc(100vh - 48px);
+}
+
+.grid {
+    width: 100%;
+    max-width: 400px;
+    margin-inline: auto;
+    display: grid;
+    gap: 24px;
+
+    a, img {
+        width: 72px;
+        height: 72px;
+    }
+
+    img {
+        transition: all ease 0.2s;
+        border-radius: 50%;
+        border: 2px solid transparent;
+    }
+
+    .emoji {
+        font-size: 64px;
+        text-align: center;
+        line-height: 1;
+        filter: grayscale(1) opacity(0.5);
+
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        align-items: center;
+        transition: all ease 0.2s;
+        gap: 24px;
+
+        img {
+            filter: grayscale(1) opacity(0.5);
+        }
+
+        &:hover, &:focus, &:focus-within {
+            transform: scale(1.048);
+            img {
+                filter: initial;
+                border-color: #fff;
+
+            }
+
+            .emoji {
+                filter: initial;
+            }
+        }
+    }
+
+    .byline {
+        text-align: right;
+    }
+
+    
+}
+
+
+
+
+@-webkit-keyframes Background {
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@-moz-keyframes Background {
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes Background {
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

@@ -3,12 +3,12 @@ body {
     padding: 0;
     margin: 0;  
 
-    background: linear-gradient(88deg, #ef476f, #ffd166, #06d6a0, #118ab2, #073b4c);
+    background: linear-gradient(88deg, #000814, #001d3d, #003566);
     background-size: 500% 500%;
 
-    -webkit-animation: Background 12s ease infinite;
-    -moz-animation: Background 12s ease infinite;
-    animation: Background 12s ease infinite;
+    -webkit-animation: Background 24s ease infinite;
+    -moz-animation: Background 24s ease infinite;
+    animation: Background 24s ease infinite;
 
     color: #fff;
 }
@@ -28,12 +28,10 @@ main {
     display: grid;
     gap: 24px;
 
-    a, img {
+    
+    img {
         width: 72px;
         height: 72px;
-    }
-
-    img {
         transition: all ease 0.2s;
         border-radius: 50%;
         border: 2px solid transparent;
@@ -53,6 +51,9 @@ main {
         align-items: center;
         transition: all ease 0.2s;
         gap: 24px;
+        color: #fff;
+        text-decoration: none;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 
         img {
             filter: grayscale(1) opacity(0.5);
@@ -74,6 +75,7 @@ main {
 
     .byline {
         text-align: right;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
     }
 
     

@@ -1,6 +1,5 @@
 import * as React from "react"
 import "../styles/main.scss"
-import chilton from "../images/chilton.png"
 import typecode from "../images/typecode.png"
 import wmac from "../images/wmac.png"
 
@@ -11,13 +10,6 @@ const links = [
     locationIcon: typecode,
     locationLabel: "Type/Code",
     url: "https://www.typecode.com",
-  },
-  {
-    actionLabel: "Playing bass",
-    nounLabel: "passion",
-    locationIcon: chilton,
-    locationLabel: "Chilton",
-    url: "https://chilton444.bandcamp.com",
   },
   {
     actionLabel: "Training in martial arts",
@@ -37,16 +29,14 @@ const IndexPage = () => {
             Hi there, you can find me
           </div>
         {links.map(link => (
-          <div key={link.url} className="row">
-              <a href={link.url} target="_blank">
+              <a href={link.url} target="_blank" key={link.url} className="row">
                 <img src={link.locationIcon} alt={link.locationLabel} />
-              </a>
               <span>{link.actionLabel} for {link.nounLabel}</span>
-          </div>
+              </a>
         ))}
         <div className="row">
           <span className="emoji">&#128570;</span>
-          Until it stops being fun and I move on.
+          So long as it is fun.
         </div>
         <div className="byline"> - 다혜 / Da-Hea</div>
       </div>

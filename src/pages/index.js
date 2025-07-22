@@ -9,7 +9,7 @@ const links = [
     nounLabel: "money",
     locationIcon: typecode,
     locationLabel: "Type/Code",
-    url: "https://www.typecode.com",
+    url: "https://typecode.com",
   },
   {
     actionLabel: "Training in martial arts",
